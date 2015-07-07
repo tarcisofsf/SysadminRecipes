@@ -14,7 +14,7 @@ lastLine=$(wc -l $file | cut -d' ' -f1)
 #DEBUG
 #echo "$file";echo "$offset";echo "$lastLine"
 
-for (( i = 1; i <= 7; i = i+offset )); do
+for (( i = 1; i <= $lastLine; i = i+offset )); do
   initiaLine="$i";
   let "finaLine= $i + $offset - 1";
   cat ${file} | sed -n "${initiaLine},${finaLine}p" >> newFile-${i}
